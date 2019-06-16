@@ -4,5 +4,6 @@ from django.conf.urls.static import static
 
 urlpatterns=[
     url('^$',views.welcome,name = 'welcome-page'),
+    url(r'^search/', views.search_results, name='search_results'),
     
 ]
