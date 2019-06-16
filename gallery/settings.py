@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'photos.apps.PhotosConfig',
-    'photos',
+    # 'photos',
     'bootstrap3',
     'django.contrib.admin',
     'django.contrib.auth',
