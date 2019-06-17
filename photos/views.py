@@ -4,10 +4,10 @@ from . models import Image, Location, Category
 from django.views.generic import ListView
 
 def home(request):
-    context = {
-        'images': Image.objects.all()
-    }
-    return render(request, 'home.html', context)
+    
+    images= Image.objects.all()
+
+    return render(request, 'home.html', {"images": images})
 
 class PicListView(ListView):
     model = Image
