@@ -1,4 +1,4 @@
-{% extends 'all-photos/base.html' %}
+{% extends 'base.html' %}
 {% block content %}
    {% if images %}
        <div class="container-fluid">
@@ -17,6 +17,6 @@
        </div>
    {% else %}
        <h1 >No images for that category or location at this time</h1>
-       <a href={% url 'welcome-page' %}>Go back home</a>
+       <a href={% url 'gallery-home' %}>Go back home</a>
    {% endif %}
 {% endblock content %}
