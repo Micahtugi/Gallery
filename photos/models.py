@@ -1,30 +1,26 @@
 from django.db import models
 
-class Editor(models.Model):
-    first_name = models.CharField(max_length =30)
-    last_name = models.CharField(max_length =30)
-    email = models.EmailField()
-    phone_number = models.CharField(max_length = 10,blank =True)
-    
+
+class Location(models.Model):
+    image_location = models.CharField(max_length=100)
+
     def __str__(self):
-        return self.first_name
-    def save_editor(self):
-        self.save()
-class tags(models.Model):
-    name = models.CharField(max_length =30)
-    
+        return self.image_location
+
+
+class Category(models.Model):
+    image_category = models.CharField(max_length=100)
+
     def __str__(self):
-        return self.name
-    
-class Article(models.Model):
-    title = models.CharField(max_length =60)
-    post = models.TextField()
-    editor = models.ForeignKey(Editor)
-    tags = models.ManyToManyField(tags)
-    pub_date = models.DateTimeField(auto_now_add=True)
-    article_image = models.ImageField(upload_to = 'articles/')
-    
-    @classmethod
-    def search_by_title(cls,search_term):
-        photos = cls.objects.filter(title__icontains=search_term)
-        return photos
+        return self.image_category
+
+
+class Image(models.Model):
+    image = models.ImageField(default='default.jpeg', upload_to='profile_pics')
+    image_name = models.CharField(max_length=100)
+    image_description = models.TextField()
+    image_location = models.ForeignKey(Location, on_delete=models.CASCADE)
+    image_category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.image_name

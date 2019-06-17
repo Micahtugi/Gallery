@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Editor,Article,tags
+from .models import Location,Image,Category
 
 class EditorTestClass(TestCase):
     
@@ -17,7 +17,7 @@ class EditorTestClass(TestCase):
         editors = Editor.objects.all()
         self.assertTrue(len(editors) > 0)
 
-class ArticleTestClass(TestCase):
+class ImageTestClass(TestCase):
     def setUp(self):
         # Creating a new editor and saving it
         self.micah= Editor(first_name = 'Micah', last_name ='Mutugi',email ='micahkimathi@gmail.com')

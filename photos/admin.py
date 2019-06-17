@@ -1,12 +1,11 @@
 from django.contrib import admin
-from .models import Editor,Article,tags
+from . import models
 
-class ArticleAdmin(admin.ModelAdmin):
-    filter_horizontal =('tags',)
+
     
-admin.site.register(Editor)
-admin.site.register(Article,ArticleAdmin)
-admin.site.register(tags)
+admin.site.register(models.Image)
+admin.site.register(models.Location)
+admin.site.register(models.Category)
 
 
 # Register your models here.
